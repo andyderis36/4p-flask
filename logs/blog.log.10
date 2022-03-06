@@ -1,0 +1,119 @@
+2022-03-04 19:25:11,034 ERROR: Exception on /download_table/SELECT post.id AS post_id, post.project AS post_project, post.progress AS post_progress, post.problem AS post_problem, post."plan" AS post_plan, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.language AS post_language 
+FROM post 
+WHERE ? = post.user_id [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 327, in download_table
+    user = post.author
+AttributeError: 'str' object has no attribute 'author'
+2022-03-04 19:38:00,072 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:52]
+2022-03-04 19:38:15,418 ERROR: Exception on /download_table/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 332, in download_table
+    return excel.make_response_from_query_sets(query_sets, column_names, "csv")
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_webio\__init__.py", line 434, in make_response_from_query_sets
+    file_stream = pe.save_as(query_sets=query_sets, column_names=column_names,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\core.py", line 77, in save_as
+    sheet_stream = sources.get_sheet_stream(**source_keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\core.py", line 21, in get_sheet_stream
+    sheets = a_source.get_data()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\sources\querysets.py", line 72, in get_data
+    data = get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 86, in get_data
+    data, _ = _get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 105, in _get_data
+    return load_data(**keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 208, in load_data
+    result[key] = list(result[key])
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\sheet.py", line 55, in to_array
+    for row_index, row in enumerate(self.row_iterator()):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\reader.py", line 123, in row_iterator
+    yield from self._native_sheet.row_iterator()
+TypeError: 'Post' object is not iterable
+2022-03-04 19:39:18,929 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:52]
+2022-03-04 20:17:06,939 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 20:39:19,657 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 20:39:20,902 ERROR: Exception on /upload_file [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'upload' did not return a valid response. The function either returned None or ended without a return statement.
+2022-03-04 20:39:24,890 ERROR: Exception on /user/andyderis [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 185, in user
+    return render_template('user.html', title=("Profile"), user=user, pict=user.u_pict,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\jinja2\environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc %}
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {% block html %}
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body %}
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content %}
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\templates\base.html", line 54, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\templates\user.html", line 53, in block 'app_content'
+    <a class="btn btn-default" href="{{ url_for('upload_file') }}">Upload Table</a>
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\helpers.py", line 325, in url_for
+    rv = url_adapter.build(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\routing.py", line 2314, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'upload_file'. Did you mean 'upload' instead?
+2022-03-04 20:39:43,308 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 20:39:47,584 ERROR: Exception on /upload_file [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'upload' did not return a valid response. The function either returned None or ended without a return statement.
+2022-03-04 20:41:42,213 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]

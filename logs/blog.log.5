@@ -1,0 +1,70 @@
+2022-03-04 21:31:37,956 ERROR: Exception on /download_table/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 329, in download_table
+    return excel.make_response_from_query_sets(query_sets, column_names, "xlsx")
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_webio\__init__.py", line 434, in make_response_from_query_sets
+    file_stream = pe.save_as(query_sets=query_sets, column_names=column_names,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\core.py", line 77, in save_as
+    sheet_stream = sources.get_sheet_stream(**source_keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\core.py", line 21, in get_sheet_stream
+    sheets = a_source.get_data()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\sources\querysets.py", line 72, in get_data
+    data = get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 86, in get_data
+    data, _ = _get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 105, in _get_data
+    return load_data(**keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 208, in load_data
+    result[key] = list(result[key])
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\sheet.py", line 55, in to_array
+    for row_index, row in enumerate(self.row_iterator()):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\reader.py", line 123, in row_iterator
+    yield from self._native_sheet.row_iterator()
+TypeError: 'User' object is not iterable
+2022-03-04 21:32:04,620 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 21:33:10,548 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 21:33:11,889 ERROR: Exception on /download_table/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 329, in download_table
+    return excel.make_response_from_query_sets(query_sets, column_names, "xlsx")
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_webio\__init__.py", line 434, in make_response_from_query_sets
+    file_stream = pe.save_as(query_sets=query_sets, column_names=column_names,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\core.py", line 77, in save_as
+    sheet_stream = sources.get_sheet_stream(**source_keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\core.py", line 21, in get_sheet_stream
+    sheets = a_source.get_data()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\sources\querysets.py", line 72, in get_data
+    data = get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 86, in get_data
+    data, _ = _get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 105, in _get_data
+    return load_data(**keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 208, in load_data
+    result[key] = list(result[key])
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\sheet.py", line 68, in to_array
+    for column_index, cell_value in enumerate(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\reader.py", line 126, in column_iterator
+    yield from self._native_sheet.column_iterator(row)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\database\querysets.py", line 54, in column_iterator
+    value = get_simple_attribute(row, column)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\database\querysets.py", line 72, in get_simple_attribute
+    value = getattr(row, attribute)
+AttributeError: 'User' object has no attribute 'usernam'
+2022-03-04 21:33:21,768 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 21:36:20,762 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]

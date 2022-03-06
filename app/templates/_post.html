@@ -1,0 +1,33 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th id="username">Name</th>
+            <th id="timestamp">Date</th>
+            <th id="project">Project</th>
+            <th id="progress">Progress</th>
+            <th id="problem">Problem</th>
+            <th id="plan">Plan</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td>
+                <a href="{{ url_for('user', username=post.author.username) }}">
+                    {% if post.author.u_pict %}
+                    <img src="{{ url_for('static', filename='images/' + post.author.u_pict) }}" width="50px" height="50px">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/bear.jpg') }}" width="50px" height="50px">
+                    {% endif %}
+                    <b>{{ post.author.username }}</b>
+                </a>
+            </td>
+            <td>{{ moment(post.timestamp).calendar() }}</td>
+            <td>{{ post.project }}</td>
+            <td>{{ post.progress}}</td>
+            <td>{{ post.problem }}</td>
+            <td>{{ post.plan }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

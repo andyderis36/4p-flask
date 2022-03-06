@@ -1,0 +1,38 @@
+<table class="table table-hover" style="text-align: left;">
+    <thead>
+        <tr>
+            <th id="id">User ID</th>
+            <th id="username">Name</th>
+            <th id="email">Email</th>
+            <th id="last_seen">Last Seen</th>
+            <th>Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>
+                <a href="{{ url_for('user', username=user.username) }}">
+                        {% if user.u_pict %}
+                        <img src="{{ url_for('static', filename='images/' + user.u_pict) }}" width="50px" height="50px">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/bear.jpg') }}" width="50px" height="50px">
+                        {% endif %}                
+                        <b> {{ user.username }} </b>
+                </a>
+            </td>
+            <td>{{ user.email }}</td>
+            <td>{{ moment(user.last_seen).calendar() }}</td>
+            <td>
+                <a class="btn btn-primary" href="{{ url_for('edit_profile', id=user.id) }}">Edit</a>
+                <br><br>
+                {% if user.id != 1 %}
+                <a class="btn btn-danger" href="{{ url_for('delete_profile', id=user.id) }}" method="post">Delete</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
