@@ -1,102 +1,93 @@
-2022-03-04 21:38:16,246 ERROR: Exception on /edit_post/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+2022-03-04 21:38:57,176 ERROR: Exception on /download_table/4 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
 Traceback (most recent call last):
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1857, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 18, in before_request
-    if current_user.is_authenticated:
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 432, in __get__
-    obj = instance._get_current_object()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
-    return self.__local()  # type: ignore
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
-    current_app.login_manager._load_user()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\login_manager.py", line 318, in _load_user
-    user = self._user_callback(user_id)
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\models.py", line 82, in load_user
-    return User.query.get(int(id))
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 550, in __get__
-    mapper = orm.class_mapper(type)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 442, in class_mapper
-    mapper = _inspect_mapped_class(class_, configure=configure)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 421, in _inspect_mapped_class
-    mapper._check_configure()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 1900, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3418, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3453, in _do_configure_registries
-    raise e
-sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'mapped class User->user'. Original exception was: Could not determine join condition between parent/child tables on relationship User.posts - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
-2022-03-04 21:38:25,370 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
-2022-03-04 21:38:34,362 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
-2022-03-04 21:38:35,207 ERROR: Exception on /user/u2 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
-Traceback (most recent call last):
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\relationships.py", line 2754, in _determine_joins
-    self.primaryjoin = join_condition(
-  File "<string>", line 2, in join_condition
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\sql\selectable.py", line 1217, in _join_condition
-    cls._joincond_trim_constraints(
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\sql\selectable.py", line 1338, in _joincond_trim_constraints
-    raise exc.AmbiguousForeignKeysError(
-sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'user' and 'post'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 329, in download_table
+    return excel.make_response_from_query_sets(query_sets, column_names, "xlsx")
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_webio\__init__.py", line 434, in make_response_from_query_sets
+    file_stream = pe.save_as(query_sets=query_sets, column_names=column_names,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\core.py", line 77, in save_as
+    sheet_stream = sources.get_sheet_stream(**source_keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\core.py", line 21, in get_sheet_stream
+    sheets = a_source.get_data()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\sources\querysets.py", line 72, in get_data
+    data = get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 86, in get_data
+    data, _ = _get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 105, in _get_data
+    return load_data(**keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 208, in load_data
+    result[key] = list(result[key])
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\sheet.py", line 68, in to_array
+    for column_index, cell_value in enumerate(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\reader.py", line 126, in column_iterator
+    yield from self._native_sheet.column_iterator(row)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\database\querysets.py", line 54, in column_iterator
+    value = get_simple_attribute(row, column)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\database\querysets.py", line 72, in get_simple_attribute
+    value = getattr(row, attribute)
+AttributeError: 'Post' object has no attribute 'user_name'
+2022-03-04 21:39:37,101 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-04 23:57:08,536 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 00:00:20,698 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 00:16:41,140 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 00:17:43,112 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 00:17:51,509 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 00:18:02,563 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 13:17:42,026 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-05 16:53:49,328 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-06 01:57:07,880 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-06 01:58:38,212 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+2022-03-06 09:43:20,263 INFO: Blog startup [in C:\Users\62821\Documents\NGODING\Python\4P_Flask\app\__init__.py:54]
+2022-03-06 09:45:59,848 INFO: Blog startup [in C:\Users\62821\Documents\NGODING\Python\4P_Flask\app\__init__.py:54]
+2022-03-06 10:07:58,430 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-06 10:12:13,373 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-06 10:15:31,981 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-06 16:59:25,443 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 12:29:36,445 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 12:34:36,092 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 14:51:09,026 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 15:38:07,599 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 15:38:20,373 ERROR: Exception on /download_table/5 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
 Traceback (most recent call last):
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1857, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 18, in before_request
-    if current_user.is_authenticated:
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 432, in __get__
-    obj = instance._get_current_object()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
-    return self.__local()  # type: ignore
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
-    current_app.login_manager._load_user()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\login_manager.py", line 318, in _load_user
-    user = self._user_callback(user_id)
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\models.py", line 82, in load_user
-    return User.query.get(int(id))
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 550, in __get__
-    mapper = orm.class_mapper(type)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 442, in class_mapper
-    mapper = _inspect_mapped_class(class_, configure=configure)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 421, in _inspect_mapped_class
-    mapper._check_configure()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 1900, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3418, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3457, in _do_configure_registries
-    mapper._post_configure_properties()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 1917, in _post_configure_properties
-    prop.init()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\interfaces.py", line 231, in init
-    self.do_init()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\relationships.py", line 2152, in do_init
-    self._setup_join_conditions()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\relationships.py", line 2248, in _setup_join_conditions
-    self._join_condition = jc = JoinCondition(
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\relationships.py", line 2643, in __init__
-    self._determine_joins()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\relationships.py", line 2806, in _determine_joins
-    util.raise_(
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-sqlalchemy.exc.AmbiguousForeignKeysError: Could not determine join condition between parent/child tables on relationship User.posts - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\belajar_python\flask\app\routes.py", line 329, in download_table
+    return excel.make_response_from_query_sets(query_sets, column_names, "xlsx")
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_webio\__init__.py", line 434, in make_response_from_query_sets
+    file_stream = pe.save_as(query_sets=query_sets, column_names=column_names,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\core.py", line 77, in save_as
+    sheet_stream = sources.get_sheet_stream(**source_keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\core.py", line 21, in get_sheet_stream
+    sheets = a_source.get_data()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\sources\querysets.py", line 72, in get_data
+    data = get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 86, in get_data
+    data, _ = _get_data(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 105, in _get_data
+    return load_data(**keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\io.py", line 208, in load_data
+    result[key] = list(result[key])
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\sheet.py", line 68, in to_array
+    for column_index, cell_value in enumerate(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\reader.py", line 126, in column_iterator
+    yield from self._native_sheet.column_iterator(row)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\database\querysets.py", line 54, in column_iterator
+    value = get_simple_attribute(row, column)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_io\database\querysets.py", line 72, in get_simple_attribute
+    value = getattr(row, attribute)
+TypeError: getattr(): attribute name must be string
+2022-03-10 15:43:07,843 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 15:47:03,237 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]

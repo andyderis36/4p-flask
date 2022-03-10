@@ -1,112 +1,122 @@
-2022-03-04 21:38:35,927 ERROR: Exception on /edit_post/6 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+2022-03-10 15:47:09,634 ERROR: Exception on /download_table/4 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
 Traceback (most recent call last):
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1857, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 18, in before_request
-    if current_user.is_authenticated:
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 432, in __get__
-    obj = instance._get_current_object()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
-    return self.__local()  # type: ignore
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
-    current_app.login_manager._load_user()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\login_manager.py", line 318, in _load_user
-    user = self._user_callback(user_id)
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\models.py", line 82, in load_user
-    return User.query.get(int(id))
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 550, in __get__
-    mapper = orm.class_mapper(type)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 442, in class_mapper
-    mapper = _inspect_mapped_class(class_, configure=configure)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 421, in _inspect_mapped_class
-    mapper._check_configure()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 1900, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3418, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3453, in _do_configure_registries
-    raise e
-sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'mapped class User->user'. Original exception was: Could not determine join condition between parent/child tables on relationship User.posts - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
-2022-03-04 21:38:37,178 ERROR: Exception on /admin [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\belajar_python\flask\app\routes.py", line 331, in download_table
+    return excel.make_response_from_query_sets(p, p_items, u, u_items, "xlsx")
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel_webio\__init__.py", line 434, in make_response_from_query_sets
+    file_stream = pe.save_as(query_sets=query_sets, column_names=column_names,
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\core.py", line 82, in save_as
+    return sources.save_sheet(sheet, **dest_keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\core.py", line 46, in save_sheet
+    a_source = SOURCE.get_writable_source(**keywords)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\source_plugin.py", line 91, in get_writable_source
+    return self.get_a_plugin(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\source_plugin.py", line 69, in get_a_plugin
+    source_cls = self.load_me_now(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\internal\source_plugin.py", line 41, in load_me_now
+    if source.is_my_business(action, **keywords):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\__init__.py", line 60, in is_my_business
+    status = self.can_i_handle(action, file_type)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pyexcel\plugins\__init__.py", line 86, in can_i_handle
+    status = file_type.lower() in tuple(RENDERER.get_all_file_types())
+AttributeError: 'User' object has no attribute 'lower'
+2022-03-10 15:53:01,295 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 15:53:07,466 ERROR: Exception on /download_table/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
 Traceback (most recent call last):
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1857, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 18, in before_request
-    if current_user.is_authenticated:
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 432, in __get__
-    obj = instance._get_current_object()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
-    return self.__local()  # type: ignore
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
-    current_app.login_manager._load_user()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\login_manager.py", line 318, in _load_user
-    user = self._user_callback(user_id)
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\models.py", line 82, in load_user
-    return User.query.get(int(id))
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 550, in __get__
-    mapper = orm.class_mapper(type)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 442, in class_mapper
-    mapper = _inspect_mapped_class(class_, configure=configure)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 421, in _inspect_mapped_class
-    mapper._check_configure()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 1900, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3418, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3453, in _do_configure_registries
-    raise e
-sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'mapped class User->user'. Original exception was: Could not determine join condition between parent/child tables on relationship User.posts - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
-2022-03-04 21:38:37,832 ERROR: Exception on /user/u4 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\belajar_python\flask\app\routes.py", line 328, in download_table
+    query = p & u
+TypeError: unsupported operand type(s) for &: 'BaseQuery' and 'User'
+2022-03-10 16:36:05,568 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 16:36:11,786 ERROR: Exception on /download_table/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
 Traceback (most recent call last):
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1857, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\routes.py", line 18, in before_request
-    if current_user.is_authenticated:
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 432, in __get__
-    obj = instance._get_current_object()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
-    return self.__local()  # type: ignore
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
-    current_app.login_manager._load_user()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_login\login_manager.py", line 318, in _load_user
-    user = self._user_callback(user_id)
-  File "C:\Users\62821\Documents\GitHub\4p-flask\app\models.py", line 82, in load_user
-    return User.query.get(int(id))
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 550, in __get__
-    mapper = orm.class_mapper(type)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 442, in class_mapper
-    mapper = _inspect_mapped_class(class_, configure=configure)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\base.py", line 421, in _inspect_mapped_class
-    mapper._check_configure()
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 1900, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3418, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\sqlalchemy\orm\mapper.py", line 3453, in _do_configure_registries
-    raise e
-sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'mapped class User->user'. Original exception was: Could not determine join condition between parent/child tables on relationship User.posts - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
-2022-03-04 21:38:53,106 INFO: Blog startup [in C:\Users\62821\Documents\GitHub\4p-flask\app\__init__.py:54]
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\62821\belajar_python\flask\app\routes.py", line 328, in download_table
+    table = pd.read_html(url)[0]
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pandas\io\html.py", line 1113, in read_html
+    return _parse(
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pandas\io\html.py", line 915, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\pandas\io\html.py", line 872, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+2022-03-10 16:37:20,064 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 16:37:26,016 ERROR: Exception on /download_table/1 [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'download_table' did not return a valid response. The function either returned None or ended without a return statement.
+2022-03-10 16:38:03,869 INFO: Blog startup [in C:\Users\62821\belajar_python\flask\app\__init__.py:54]
+2022-03-10 16:38:10,336 ERROR: Exception on /download_table [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'download_table' did not return a valid response. The function either returned None or ended without a return statement.
+2022-03-10 16:38:10,337 ERROR: Exception on /download_table [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'download_table' did not return a valid response. The function either returned None or ended without a return statement.
+2022-03-10 16:38:10,338 ERROR: Exception on /download_table [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'download_table' did not return a valid response. The function either returned None or ended without a return statement.
+2022-03-10 16:38:10,644 ERROR: Exception on /download_table [GET] [in C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py:1457]
+Traceback (most recent call last):
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\62821\belajar_python\flask\env\lib\site-packages\flask\app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'download_table' did not return a valid response. The function either returned None or ended without a return statement.
