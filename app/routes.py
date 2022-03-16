@@ -324,7 +324,7 @@ def unfollow(username):
 @app.route("/download_table/<int:id>", methods=['GET'])
 def download_table(id):
     query_sets = Post.query.filter_by(user_id=id)
-    column_names = ['id', 'project', 'progress', 'problem', 'plan', 'timestamp']
+    column_names = ['id', 'project', 'progress',
+                    'problem', 'plan', 'timestamp']
     flash("Table Downloaded!")
     return excel.make_response_from_query_sets(query_sets, column_names, "xlsx")
-    
