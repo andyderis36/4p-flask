@@ -6,6 +6,3 @@
 *.pyc
 *.pyc
 *.log
-*env
-*app\static
-*logs
