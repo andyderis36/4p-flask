@@ -1,73 +1,89 @@
 # 4P Flask
 
-Aplikasi web berbasis Flask untuk mencatat pembaruan **Project, Progress, Problem, Plan (4P)** dengan akun pengguna.
+A simple Flask web application for recording and sharing daily 4P updates: Project, Progress, Problem, Plan. The app supports user accounts, profiles, and basic social features.
 
-## Fitur
+## Features
 
-- Autentikasi pengguna (register, login, logout)
-- Profil pengguna + upload foto profil
-- CRUD post 4P (Project/Progress/Problem/Plan)
-- Follow/Unfollow antar pengguna
-- Admin page untuk melihat daftar user
-- Reset password via email
-- Export data ke Excel (.xlsx)
+- User authentication (register, login, logout)
+- User profile with profile photo upload
+- CRUD for 4P posts (Project / Progress / Problem / Plan)
+- Follow / unfollow other users
+- Admin page to view user list
+- Password reset via email
+- Export data to Excel (.xlsx)
 
-## Teknologi
+## Technologies
 
 - Flask 2.x
 - SQLAlchemy + Flask-Migrate
 - Flask-Login, Flask-Mail, Flask-Bootstrap, Flask-Excel
 
-## Persiapan
+## Quick Start
+
+1. Create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+# Windows (cmd)
+.venv\Scripts\activate
+```
+
+2. Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Konfigurasi
+## Configuration
 
-Variabel environment yang digunakan (opsional):
+The application reads configuration from environment variables. Common variables:
 
-- `SECRET_KEY`
-- `DATABASE_URL` (default: sqlite `app.db`)
-- `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USE_TLS`, `MAIL_USERNAME`, `MAIL_PASSWORD`
+- SECRET_KEY — Flask secret key
+- DATABASE_URL — SQLAlchemy database URL (default: SQLite `app.db`)
+- MAIL_SERVER, MAIL_PORT, MAIL_USE_TLS, MAIL_USERNAME, MAIL_PASSWORD — email settings for password reset
 
-File `.flaskenv` sudah menetapkan `FLASK_APP=blog.py`.
+A `.flaskenv` file is included and sets `FLASK_APP=blog.py` for convenience.
 
-## Inisialisasi Database
+## Initialize the Database
 
-Jika ingin membuat DB baru:
+If you want to create or upgrade the database schema:
 
 ```bash
 flask db upgrade
 ```
 
-> Repo ini sudah menyertakan `app.db` untuk penggunaan lokal sederhana.
+Note: This repository includes a pre-populated `app.db` for simple local use.
 
-## Menjalankan Aplikasi
+## Running the Application
+
+Run the development server:
 
 ```bash
 flask run
 ```
 
-Buka `http://127.0.0.1:5000`.
+Open http://127.0.0.1:5000 in your browser.
 
-## Akun Contoh
+## Example Accounts
 
-Lihat `user_login.md` untuk kredensial contoh (jika menggunakan `app.db` bawaan).
+See `user_login.md` for example credentials (useful if you're using the included `app.db`).
 
-## Pengujian
+## Testing
+
+Run the test script:
 
 ```bash
 python test.py
 ```
 
-## Struktur Singkat
+## Project Structure (short)
 
-- `app/` – aplikasi utama (routes, models, forms, templates)
-- `migrations/` – migrasi database
-- `blog.py` – entry untuk Flask shell
-- `config.py` – konfigurasi aplikasi
-- `app.db` – database SQLite bawaan
+- app/ — main application package (routes, models, forms, templates)
+- migrations/ — database migrations
+- blog.py — Flask app entry (used by flask CLI)
+- config.py — application configuration
+- app.db — included SQLite database (for local testing)
