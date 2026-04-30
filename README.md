@@ -1,6 +1,6 @@
 # 4P Flask
 
-A Flask-based web app for tracking **Project, Progress, Problem, Plan (4P)** updates with user accounts.
+Aplikasi web berbasis Flask untuk mencatat pembaruan **Project, Progress, Problem, Plan (4P)** dengan akun pengguna.
 
 ## Fitur
 
@@ -12,7 +12,7 @@ A Flask-based web app for tracking **Project, Progress, Problem, Plan (4P)** upd
 - Reset password via email
 - Export data ke Excel (.xlsx)
 
-## Stack
+## Teknologi
 
 - Flask 2.x
 - SQLAlchemy + Flask-Migrate
@@ -58,7 +58,7 @@ Buka `http://127.0.0.1:5000`.
 
 Lihat `user_login.md` untuk kredensial contoh (jika menggunakan `app.db` bawaan).
 
-## Testing
+## Pengujian
 
 ```bash
 python test.py
